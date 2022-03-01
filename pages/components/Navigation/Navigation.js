@@ -1,4 +1,25 @@
 import Link from "next/link";
+import styled from "styled-components";
+
+const Container = styled.ul`
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: large;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Heading = styled.li`
+  font-size: 20px;
+`;
+
+const Band = styled.div`
+  padding-bottom: 100px;
+`;
 
 const Navigation = () => {
   return (
