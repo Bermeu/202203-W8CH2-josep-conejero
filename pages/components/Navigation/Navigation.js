@@ -4,43 +4,49 @@ import styled from "styled-components";
 const Container = styled.ul`
   width: 100%;
   text-align: center;
-  color: #fff;
-  font-size: large;
-  padding-top: 100px;
+  color: #000;
+  font-size: 20px;
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `;
 
 const Heading = styled.li`
   font-size: 20px;
+  list-style-type: none;
+  background-color: lightblue;
+  padding: 10px;
 `;
 
-const Band = styled.div`
-  padding-bottom: 100px;
+const Option = styled.li`
+  font-size: 20px;
+  list-style-type: none;
+  background-color: lightblue;
+  padding: 10px;
 `;
 
 const Navigation = () => {
   return (
     <nav>
-      <ul>
-        <li>
+      <Container>
+        <Heading>
           <Link href="/">HOME</Link>
-        </li>
-        <li>
+        </Heading>
+        <Option>
           <Link href="/pokemon">POKEMON</Link>
-        </li>
-        <li>
+        </Option>
+        <Option>
           <Link href="/pokemon-ssr">POKEMON-SSR</Link>
-        </li>
-        <li>
+        </Option>
+        <Option>
           <Link href="/pokemon-ssg">POKEMON-SSG</Link>
-        </li>
-        <li>
+        </Option>
+        <Option>
           <Link href="/pokemon-isr">POKEMON-ISR</Link>
-        </li>
-      </ul>
+        </Option>
+      </Container>
     </nav>
   );
 };
