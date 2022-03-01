@@ -1,4 +1,4 @@
-import Navigation from "";
+import Navigation from "../Navigation/Navigation";
 
 const Layout = ({ children }) => {
   return (
@@ -8,3 +8,5 @@ const Layout = ({ children }) => {
     </>
   );
 };
+
+export default Layout;
