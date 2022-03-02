@@ -6,7 +6,7 @@ const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   react.useEffect(async () => {
-    const response = await fetch(process.env.NEXT_PUBLIC_URL);
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
     const { results } = await response.json();
 
     const pokemonList = results.map(async (pokemon) => {
