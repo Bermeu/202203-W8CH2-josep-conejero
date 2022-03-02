@@ -1,21 +1,23 @@
 import Image from "next/image";
-import react from "react";
-import { React, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
-  react.useEffect(async () => {
-    const response = await fetch(process.env.NEXT_PUBLIC_URL);
-    const { results } = await response.json();
+  useEffect(() => {
+    (async () => {
+      const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
+      const smallPokemonList = await response.json();
 
-    const pokemonList = results.map(async (pokemon) => {
-      const response = await fetch(pokemon.url);
-      const { name, sprites } = await response.json();
-      return { name, sprites };
-    });
+      const pokemonsAllpromise = Promise.all(
+        smallPokemonList.results.map((pokemon) =>
+          fetch(pokemon.url).then((response) => response.json())
+        )
+      );
+      const bigPokemonList = await pokemonsAllpromise;
 
-    setPokemonList(await Promise.all(pokemonList));
+      setPokemonList(bigPokemonList);
+    })();
   }, []);
 
   return (
